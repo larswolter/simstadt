@@ -1,0 +1,31 @@
+<template name="startmenu">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {{> atForm}}
+            {{#if currentUser}}
+                {{#if currentUser.profile.activeGame}}
+                    <button class="btn btn-primary btn-block action-continue">
+                        Fortsetzen
+                    </button>
+                    <button class="btn btn-default btn-block action-new-game">
+                        Neues Spiel
+                    </button>
+                {{else}}
+                    <button class="btn btn-primary btn-block disabled">
+                        Fortsetzen
+                    </button>
+                    <button class="btn btn-primary btn-block action-new-game">
+                        Neues Spiel
+                    </button>
+                {{/if}}
+                <button class="btn btn-default btn-block action-settings">
+                    Einstellungen
+                </button>
+            {{/if}}
+            <button class="btn btn-default btn-block action-about">
+                About
+            </button>
+        </div>
+    </div>
+</template>
+     

@@ -1,0 +1,24 @@
+{
+  "name": "simstadt",
+  "version": "1.0.0",
+  "description": "Städtebausimulation",
+  "main": "client/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "lars@larswolter.de:/home/lars/gitrepos/simstadt"
+  },
+  "author": "Lars Wolter",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "localforage": "^1.4.2",
+    "meteor-node-stubs": "^0.2.3",
+    "pepjs": "^0.4.1"
+  }
+}

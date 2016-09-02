@@ -1,0 +1,27 @@
+
+.text-center {
+    text-align: center;
+}
+
+body {
+    padding:0px;
+    margin:0px;
+    overflow:hidden;
+    > div {
+        position: absolute;
+        top:0px;
+        left:0px;
+        right:0px;
+        bottom: 0px;
+    }
+}
+.gui {
+    pointer-events:none;
+    div {
+        pointer-events:all;
+    }
+}
+
+#view3d {
+    touch-action: none;
+}

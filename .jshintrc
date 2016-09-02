@@ -1,0 +1,22 @@
+{
+    "undef": true,
+    "unused": true,
+    "curly": false,
+    "indent": 4,
+    "devel": true,
+    "browser": true,
+    "jquery": true,
+    "globals": {
+        "THREE": false,
+        "Tracker": false,
+        "Meteor": false,
+        "Template": false,
+        "Session": false,
+        "ReactiveVar": false,
+        "Accounts": false,
+        "$": false,
+        "_": false,
+        "moment": false,
+        "Game": true
+    }
+}

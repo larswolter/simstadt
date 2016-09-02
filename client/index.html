@@ -1,0 +1,51 @@
+<head>
+</head>
+<body>
+    {{>viewTerrain}}
+</body>
+
+<template name="viewTerrain">
+    {{>view3d}}
+    {{>gui}}
+</template>
+
+<template name="gui">
+    <div class="modal" id="menuDialog">
+        <div class="modal-dialog">
+            {{>menuContent}}
+        </div>
+    </div>
+    <div class="gui">
+        <div class="btn-group pull-right">
+            <button class="btn btn-default action-menu">
+                <span class="fa fa-user"></span>
+            </button>
+            <button class="btn btn-default action-reconnect">
+                <span class="fa fa-exchange fa-rotate-90 {{#if networkStatus.connected}}text-success{{/if}}"></span>
+            </button>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-default toggle-object-creation" data-creation="ROAD_SINGLE">
+                <span class="fa fa-road"></span> <span class="hidden-xs">Straßen</span>
+            </button>
+            <button class="btn btn-default toggle-object-creation" data-creation="AREA_LIVING">
+                <span class="fa fa-house"></span> <span class="hidden-xs">Wohnraum</span>
+            </button>
+            <button class="btn btn-default toggle-object-creation" data-creation="AREA_COMERCIAL">
+                <span class="fa fa-company"></span> <span class="hidden-xs">Gewerbe</span>
+            </button>
+            <button class="btn btn-default toggle-object-creation" data-creation="AREA_INDUSTRY">
+                <span class="fa fa-industry"></span> <span class="hidden-xs">Industrie</span>
+            </button>
+        </div>
+    </div>
+</template>
+
+<template name="menuContent">
+    <div class="modal-heading">
+        <h4>Menü</h4>        
+    </div>
+    <div class="modal-body">
+        {{>startmenu}}
+    </div>
+</template>
