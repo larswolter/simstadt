@@ -1,4 +1,11 @@
 Meteor.methods({
+    groundElementsUpdate: function(x,y,data) {
+        let user = Meteor.users.findOne(this.userId);
+        let game = user.profile.activeGame;
+        if(!game)
+            return;
+        Game.groundElements.update({x,y,game},{$set:data});
+    },
     groundElementsInsert: function(x,y,type) {
         let user = Meteor.users.findOne(this.userId);
         let game = user.profile.activeGame;
@@ -7,8 +14,6 @@ Meteor.methods({
         if(Game.groundElements.findOne({x,y,game}))
             return Game.groundElements.update({x,y,game},{$set:{type}});
         let element = {x,y,type,offset:Game.groundElements.find({game}).count(),game};
-        if(this.isSimulation)
-            console.log('acting as ',user);
 
         // check around and update associations for roads
         if(type >= Game.elements.ROAD_SINGLE && type <= Game.elements.ROAD_FOOTWALK) {
@@ -39,7 +44,7 @@ Meteor.methods({
             Game.groundElements.remove({x,y});
     },
     startNewGame: function(name) {
-        Meteor.users.update(this.userId,{$set:{'profile.activeGame':name}});
+        Meteor.users.update(this.userId,{$set:{'profile.activeGame':name},$push:{'profile.games':name}});
     }
 
 });

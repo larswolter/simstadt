@@ -3,8 +3,12 @@ import Building from './building.js';
 
 Meteor.startup(function () {
     Tracker.autorun(()=>{
-        if(Game.groundInitDone.get() && Game.terrainHeightData.get())
+        const user = Meteor.users.findOne(Meteor.userId());
+        if(user && user.profile && user.profile.activeGame && 
+           Game.groundInitDone.get() && Game.terrainHeightData.get()) {
+               Game.groundClear();
             Meteor.subscribe('groundElements');
+           }
     });
     Game.groundElements.find().observe({
         added: function(node) {
@@ -15,7 +19,7 @@ Meteor.startup(function () {
         },
         changed: function(node) {
             updateImage(node);
-        }
+        },
     });
 });
 
@@ -54,6 +58,8 @@ function updateImage(node) {
         Game.groundUpdate(node.offset, node.type, 0);
 
     if(node.type === Game.elements.AREA_LIVING) {
-        Building.build(node._id,new THREE.Vector3(node.x,node.y,Game.groundHeight(node.x,node.y)));
+        let building = Building.build(node._id,new THREE.Vector3(node.x,node.y,Game.groundHeight(node.x,node.y)),node.building);
+        if(!node.building)
+            Meteor.call('groundElementsUpdate', node.x, node.y, {building});
     }
 }

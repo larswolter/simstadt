@@ -1,4 +1,4 @@
-T9n.setLanguage('de');
+/*T9n.setLanguage('de');
 
 AccountsTemplates.configure({
     // Behavior
@@ -26,7 +26,7 @@ AccountsTemplates.configure({
     showValidating: true
 
 });
-
+*/
 if(Meteor.isServer) {
     Accounts.onLogin(function(attempt){
         if(!attempt.user.username)

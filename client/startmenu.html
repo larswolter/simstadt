@@ -1,31 +1,71 @@
-<template name="startmenu">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            {{> atForm}}
-            {{#if currentUser}}
-                {{#if currentUser.profile.activeGame}}
-                    <button class="btn btn-primary btn-block action-continue">
-                        Fortsetzen
-                    </button>
-                    <button class="btn btn-default btn-block action-new-game">
-                        Neues Spiel
-                    </button>
-                {{else}}
-                    <button class="btn btn-primary btn-block disabled">
-                        Fortsetzen
-                    </button>
-                    <button class="btn btn-primary btn-block action-new-game">
-                        Neues Spiel
-                    </button>
-                {{/if}}
-                <button class="btn btn-default btn-block action-settings">
-                    Einstellungen
+<template name="startmenu">    
+    {{#if currentUser}}
+        <center>
+            <h3>{{currentUser.username}}</h3>
+        </center>
+        <div class="form-group">
+            {{#if currentUser.profile.activeGame}}
+                <button class="btn btn-primary btn-block action-continue">
+                    Fortsetzen
+                </button>
+                <button class="btn btn-default btn-block action-new-game">
+                    Neues Spiel
+                </button>
+            {{else}}
+                <button class="btn btn-primary btn-block disabled">
+                    Fortsetzen
+                </button>
+                <button class="btn btn-primary btn-block action-new-game">
+                    Neues Spiel
                 </button>
             {{/if}}
-            <button class="btn btn-default btn-block action-about">
-                About
+            <button class="btn btn-default btn-block action-settings">
+                Einstellungen
+            </button>
+            <button class="btn btn-default btn-block action-logout">
+                Abmelden
             </button>
         </div>
+    {{else}}
+        <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" class="form-control" id="login-email" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="login-password">Passwort</label>
+            <input type="password" class="form-control" id="login-password" placeholder="Passwort">
+        </div>
+        {{#if error}}
+        <div class="form-group">
+            <div class="alert-danger">
+                {{error}}
+            </div>
+        </div>
+        {{/if}}
+        <div class="form-group">
+            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                <div class="btn-group" role="group">
+                    <button class="btn btn-primary action-login" disabled={{loggingIn}}>
+                        Anmelden
+                    </button>
+                </div>
+                <div class="btn-group" role="group">
+                        <button class="btn btn-default action-register" disabled={{loggingIn}}>
+                        Registrieren
+                    </button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button class="btn btn-default action-reset-pw" disabled={{loggingIn}}>
+                        Passwort vergessen
+                    </button>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+    <div class="form-group">
+        <button class="btn btn-default btn-block action-about">
+            About
+        </button>
     </div>
 </template>
      

@@ -12,6 +12,15 @@ Meteor.startup(function () {
     _.extend(Game, {
 
         groundInit: function (scene) {
+            Game.groundInitDone.set(false);
+            let oldMesh = Game.scene.getObjectByName("Ground");
+            if(oldMesh) {
+                Game.scene.remove(oldMesh);
+                oldMesh.geometry.dispose();
+                oldMesh.geometry = null;
+                oldMesh.material.dispose();
+                oldMesh.material = null;
+            }
             geometry = new THREE.BufferGeometry();
             geometry.dynamic = true;
             geometry.verticesNeedUpdate = true;
@@ -33,19 +42,30 @@ Meteor.startup(function () {
             mesh.name = "Ground";
             mesh.renderOrder = 1;
             scene.add(mesh);
-            Building.loadGeometries([
-                '/buildings/Einfamilienhaus.json',
-                '/buildings/Wohnhaus.json',
-                '/buildings/Hochhaus.json'
-            ],undefined,()=>{
+            if(oldMesh)
                 Game.groundInitDone.set(true);
-                console.log('Ground Init done!');                
-            });
+            else
+                Building.loadGeometries([
+                    '/buildings/Einfamilienhaus.json',
+                    '/buildings/Wohnhaus.json',
+                    '/buildings/Hochhaus.json'
+                ],undefined,()=>{
+                    Game.groundInitDone.set(true);
+                    console.log('Ground Init done!');                
+                });
         },
         groundHeight: function (x,y) {
             let width = Game.terrainHeightData.get().width;
             let data = Game.terrainHeightData.get().data;
             return data[y * width + x];
+        },
+        groundClear: function() {
+            var indices = geometry.getIndex().array;
+            for(let i=0;i< indices.length;i++)
+                indices[i] = 0;
+            geometry.dynamic = true;
+            geometry.getIndex().needsUpdate = true;
+            numGrounds = 0;
         },
         groundAdd: function (x, y) {
             var offset = numGrounds;
