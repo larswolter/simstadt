@@ -1,4 +1,4 @@
-/*T9n.setLanguage('de');
+/* T9n.setLanguage('de');
 
 AccountsTemplates.configure({
     // Behavior
@@ -27,9 +27,8 @@ AccountsTemplates.configure({
 
 });
 */
-if(Meteor.isServer) {
-    Accounts.onLogin(function(attempt){
-        if(!attempt.user.username)
-            Meteor.users.update(attempt.user._id,{$set:{username:attempt.user.emails[0].address}});
-    });
+if (Meteor.isServer) {
+  Accounts.onLogin(function(attempt) {
+    if (!attempt.user.username) { Meteor.users.update(attempt.user._id, { $set: { username: attempt.user.emails[0].address } }); }
+  });
 }

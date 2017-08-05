@@ -16,7 +16,7 @@ Meteor.startup(function () {
         }
     });
     localforage.getItem('camConfiguration',(err,value)=>{
-        if(!err) {
+        if(value) {
             Game.camLookAt.set(new THREE.Vector3(...value.lookAt));
             Game.camRotation.set(value.rotation);
             Game.camTilt.set(value.tilt);

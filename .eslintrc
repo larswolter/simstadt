@@ -1,7 +1,7 @@
 {
     "globals": {
         "_": true,
-        "Game": true,
+        "UltiSite": true,
         "Meteor": true,
         "ReactiveVar": true,
         "Template": true,
@@ -21,7 +21,7 @@
     "rules": {
         "indent": [
             1,
-            4
+            2
         ],
         "quotes": [
             0,
@@ -42,16 +42,21 @@
         ],
         "no-console": [
           0
+        ],
+        "meteor/eventmap-params":[
+          0
         ]
     },
     "parserOptions": {
         "ecmaVersion": 6,
         "sourceType": "module"
     },
+    "plugins": ["meteor"],
     "env": {
         "es6": true,
         "node": true,
         "browser": true
     },
-    "extends": "eslint:recommended"
+    "extends": "@meteorjs/eslint-config-meteor"
+    //"extends": ["plugin:meteor/recommended"]
 }
