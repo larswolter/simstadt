@@ -18,19 +18,22 @@
   "dependencies": {
     "@babel/runtime": "^7.7.2",
     "bcrypt": "^3.0.7",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "localforage": "^1.7.3",
     "meteor-node-stubs": "^0.4.1",
     "pepjs": "^0.5.2"
   },
   "devDependencies": {
     "@meteorjs/eslint-config-meteor": "^1.0.5",
-    "babel-eslint": "^7.2.3",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^15.0.1",
+    "babel-eslint": "^10.0.3",
+    "casperjs": "^1.1.4",
+    "denodeify": "^1.2.1",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
     "eslint-import-resolver-meteor": "^0.4.0",
-    "eslint-plugin-import": "^2.3.0",
-    "eslint-plugin-jsx-a11y": "^5.0.3",
-    "eslint-plugin-meteor": "^4.0.1",
-    "eslint-plugin-react": "^7.0.1"
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-meteor": "^6.0.0",
+    "eslint-plugin-react": "^7.12.4"
   }
 }
