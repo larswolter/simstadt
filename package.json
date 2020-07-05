@@ -16,24 +16,24 @@
   "author": "Lars Wolter",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "^7.7.2",
-    "bcrypt": "^3.0.7",
-    "eslint-plugin-react-hooks": "^2.3.0",
-    "localforage": "^1.7.3",
+    "@babel/runtime": "^7.10.4",
+    "bcrypt": "^3.0.8",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "localforage": "^1.7.4",
     "meteor-node-stubs": "^0.4.1",
     "pepjs": "^0.5.2"
   },
   "devDependencies": {
     "@meteorjs/eslint-config-meteor": "^1.0.5",
-    "babel-eslint": "^10.0.3",
+    "babel-eslint": "^10.1.0",
     "casperjs": "^1.1.4",
     "denodeify": "^1.2.1",
-    "eslint": "^6.6.0",
-    "eslint-config-airbnb": "^18.0.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.2.0",
     "eslint-import-resolver-meteor": "^0.4.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-meteor": "^6.0.0",
-    "eslint-plugin-react": "^7.12.4"
+    "eslint-plugin-react": "^7.20.3"
   }
 }
