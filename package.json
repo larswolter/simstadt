@@ -17,7 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.10.4",
-    "bcrypt": "^3.0.8",
+    "bcrypt": "^5.0.0",
     "eslint-plugin-react-hooks": "^2.5.1",
     "localforage": "^1.7.4",
     "meteor-node-stubs": "^0.4.1",
